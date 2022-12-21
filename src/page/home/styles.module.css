@@ -1,0 +1,23 @@
+
+
+.container_feed {
+  max-width: 470px;
+  margin-right: 32px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.suggestions {
+  max-width: 319px;
+  width: 100%;
+}
+
+.container_feed_story{
+  margin-top: 16px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  white-space: nowrap;
+  padding: 16px 0 16px 0;
+  overflow-x: hidden;
+}

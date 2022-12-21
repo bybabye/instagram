@@ -10,7 +10,7 @@ export const MenuAvatar = ({
     return (
         <img
             src={url}
-            style={{width:`${size}px`,height:`${size}px`, border : isSelect ? '2px solid #000' :'none',objectFit : 'cover' }}
+            style={{width:`${size}px`,height:`${size}px`, border : isSelect ? '2px solid #000' :'none',objectFit : 'cover' ,padding : '2px'  }}
             onClick = {onClick}
             className = 'rounded-full'
             alt=""
