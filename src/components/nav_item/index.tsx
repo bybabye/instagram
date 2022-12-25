@@ -6,7 +6,7 @@ export const NavItem = (
     return (
         <div className={`${styles.nav_item}`  } onClick = {onClick}>
             {icon}
-            <div className={'pl-4 text-base'} style = {{ fontWeight : isSelect ? '600' : 'normal' }}>{text}</div>
+            <div className={`${styles.nav_title} pl-4 text-base`} style = {{ fontWeight : isSelect ? '600' : 'normal' }}>{text}</div>
         </div>
     );
 }

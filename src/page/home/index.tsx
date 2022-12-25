@@ -1,35 +1,30 @@
-import { CircleAvatar } from "../../components/circle_avatar";
 import UserStories from "../../components/user_stories";
 import styles from "./styles.module.css";
+import PostItem from "../../components/post_item";
+import { listPosts } from "../../common/data/list_posts";
+import Suggestions from "../../components/suggestions";
 
 export default function HomePage(): JSX.Element {
   return (
-    <div className={"flex flex-row justify-center"}>
+    <div className={"flex flex-row grow justify-center"}>
       <div className={`${styles.container_feed}`}>
         <UserStories />
-        <div className={`${styles.container_post}`}>
-          <div className={"flex flex-row justify-between items-center ml-3 mr-1 my-2"}>
-            <div className="flex flex-row justify-center items-center">
-              <CircleAvatar
-                url={
-                  "https://scontent.fhan5-11.fna.fbcdn.net/v/t39.30808-1/294695189_2249536608555347_7289291305221327625_n.jpg?stp=cp6_dst-jpg_p320x320&_nc_cat=100&ccb=1-7&_nc_sid=7206a8&_nc_ohc=gZw14K0CWRMAX_abEVf&_nc_ht=scontent.fhan5-11.fna&oh=00_AfDOXt-uaZch1Vv--aIQbP1Joq9wQSi9aY7ADywxxVDQOQ&oe=63A69E4C"
-                }
-                size={32}
-                onClick={function (): void {
-                  throw new Error("Function not implemented.");
-                }}
-              />
-              <p className="ml-[10px]">huy bui</p>
-            </div>
-
-              <div className="p-2">...</div>
-          </div>
-          <div className={`${styles.container_post_content}`}>content</div>
-          <div>favorite</div>
-          <div>comment</div>
-        </div>
+        {listPosts && listPosts.map((e) => (
+          <PostItem
+            key={e.id}
+            id={e.id}
+            user={e.user}
+            isLiked={e.isLiked}
+            description={e.description}
+            totalLike={e.totalLike}
+            totalCmt={e.totalCmt}
+            image={e.image}
+          />
+        ))}
       </div>
-      <div className={`${styles.suggestions}`}> div right</div>
+      <div className={`${styles.suggestions}`}>
+        <Suggestions/>
+      </div>
     </div>
   );
 }

@@ -2,27 +2,24 @@
 
 .container_feed {
   max-width: 470px;
-  margin-right: 32px;
   margin-top: 10px;
   width: 100%;
 }
 
 .suggestions {
+  margin-top: 10px;
   max-width: 319px;
   width: 100%;
 }
 
-.container_post {
-  max-width: 470px;
-  margin-top: 16px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+@media (min-width : 768px) and (max-width: 1263px) {
+  .suggestions {
+    display: none;
+  }
 }
 
-.container_post_content {
-  height: 470px;
-  max-width: 470px;
-  width: 100%;
-  background-color: #ccc;
+@media screen and (max-width: 767px) {
+  .suggestions {
+    display: none;
+  }
 }

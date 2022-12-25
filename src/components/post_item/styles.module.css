@@ -1,0 +1,21 @@
+
+.container_post {
+  max-width: 470px;
+  margin-top: 16px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.container_post_content {
+  height: 470px;
+  width: 100%;
+  background-color: #ccc;
+}
+
+.container_post_footer {
+  display: flex;
+  flex-direction: column;
+ 
+}
+

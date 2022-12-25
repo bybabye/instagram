@@ -14,10 +14,10 @@ export default function UserStories(): JSX.Element {
     className="mt-4 bg-[#ffffff] whitespace-nowrap rounded-lg border-[1px] overflow-x-hidden py-4">
       {listStories.map((e, index) => {
         return (
-          <div className="inline-block">
+          <div key={e.id} className="inline-block">
             <div
               className={
-                "flex flex-col item-center justify-center items-center px-4"
+                "flex flex-col item-center justify-center items-center pl-4"
               }
             >
               <UserAvatarStory

@@ -9,6 +9,7 @@ import {
   Reels,
   Search,
 } from "../images";
+import { InstagramIcon } from "../images/icon/index";
 import { MenuAvatar } from "../menu_avatar";
 import { NavItem } from "../nav_item";
 import styles from "./styles.module.css";
@@ -22,67 +23,74 @@ export default function SideBar({
 }): JSX.Element {
   return (
     <div className={`${styles.sidebar}`}>
-      <div className={`cursor-pointer px-3 pt-[25px] pb-4 mb-[19px]`}>
+      <div
+        className={`${styles.show_logo} cursor-pointer px-3 pt-[25px] pb-4 mb-[19px]`}
+      >
         <InstagramLogo />
       </div>
-      <div className={"grow"}>
+      <div
+        className={`${styles.show_icon_logo} cursor-pointer px-3 pt-[25px] pb-4 mb-[19px]`}
+      >
+        <InstagramIcon />
+      </div>
+      <div className={"grow contents"}>
         <NavItem
           icon={<HomeIcon />}
           text={"Home"}
-          isSelect={tabActive === ''}
+          isSelect={tabActive === ""}
           isHover={false}
-          onClick={() => onClickTab('')}
+          onClick={() => onClickTab("")}
         />
-        <NavItem
-          icon={<Search />}
-          text={"Search"}
-          isSelect={false}
-          isHover={false} onClick={function (): void {
-            throw new Error("Function not implemented.");
-          } }          
-        />
+        <div className={`${styles.hide_on_mobile}`}>
+          <NavItem
+            icon={<Search />}
+            text={"Search"}
+            isSelect={tabActive === "Search"}
+            isHover={false}
+            onClick={function (): void {
+              onClickTab("Search");
+            }}
+          />
+        </div>
+
         <NavItem
           icon={<Explore />}
           text={"Explore"}
-          isSelect={tabActive === 'explore'}
+          isSelect={tabActive === "explore"}
           isHover={false}
-          onClick={() => onClickTab('explore')}
+          onClick={() => onClickTab("explore")}
         />
         <NavItem
           icon={<Reels />}
           text={"Reels"}
-          isSelect={false}
+          isSelect={tabActive === "reelsPage"}
           isHover={false}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={() => onClickTab("reelsPage")}
         />
-        <NavItem
-          icon={<Messages />}
-          text={"Messages"}
-          isSelect={false}
-          isHover={false}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
-        <NavItem
-          icon={<Favourite />}
-          text={"Notifications"}
-          isSelect={false}
-          isHover={false}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
-        />
+      
+        <div className={`${styles.hide_on_mobile}`}>
+          <NavItem
+            icon={<Favourite />}
+            text={"Notifications"}
+            isSelect={tabActive === "notifications"}
+            isHover={false}
+            onClick={() => onClickTab("notifications")}
+          />
+        </div>
+       
         <NavItem
           icon={<CreatePost />}
           text={"Create"}
-          isSelect={false}
+          isSelect={tabActive === "create"}
           isHover={false}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={() => onClickTab("create")}
+        />
+         <NavItem
+          icon={<Messages />}
+          text={"Messages"}
+          isSelect={tabActive === "messagePage"}
+          isHover={false}
+          onClick={() => onClickTab("messagePage")}
         />
         <NavItem
           icon={
@@ -92,26 +100,22 @@ export default function SideBar({
               }
               size={24}
               isSelect={false}
-              onClick={function (): void {
-                throw new Error("Function not implemented.");
-              }}
+              onClick={() => onClickTab("")}
             />
           }
           text={"Profile"}
-          isSelect={tabActive === 'profile'}
+          isSelect={tabActive === "profile"}
           isHover={false}
-          onClick={() => onClickTab('profile')}
+          onClick={() => onClickTab("profile")}
         />
       </div>
-      <div>
+      <div className={`${styles.hide_on_mobile}`}>
         <NavItem
           icon={<More />}
           text={"More"}
           isSelect={false}
           isHover={false}
-          onClick={function (): void {
-            throw new Error("Function not implemented.");
-          }}
+          onClick={() => onClickTab("")}
         />
       </div>
     </div>
