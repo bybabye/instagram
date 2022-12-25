@@ -1,0 +1,25 @@
+
+
+.container_feed {
+  max-width: 470px;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.suggestions {
+  margin-top: 10px;
+  max-width: 319px;
+  width: 100%;
+}
+
+@media (min-width : 768px) and (max-width: 1263px) {
+  .suggestions {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .suggestions {
+    display: none;
+  }
+}
