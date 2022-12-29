@@ -33,7 +33,7 @@ export default function SideBar({
       >
         <InstagramIcon />
       </div>
-      <div className={"grow contents"}>
+      <div className={`grow ${styles.show_content}`}>
         <NavItem
           icon={<HomeIcon />}
           text={"Home"}
