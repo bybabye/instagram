@@ -28,7 +28,7 @@ export default function LoginPage(): JSX.Element {
           const uid = await SignIn({ email, password }); // login email from firebase
 
           if (uid) {
-            navigate("/");
+            navigate("/home");
           }
         } else {
           setError("You have entered an invalid email address!");
