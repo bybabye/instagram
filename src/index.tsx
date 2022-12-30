@@ -23,9 +23,9 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/" element={<Private Component={<RootPage />} />}>
-          <Route element={<HomePage />} path="/" />
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/home" element={<Private Component={<RootPage />} />}>
+          <Route element={<HomePage />} path="/home" />
           <Route element={<Explore />} path="explore" />
           <Route element={<ProfilePage />} path="profile" />
           <Route element={<CreatePost />} path="create" />
