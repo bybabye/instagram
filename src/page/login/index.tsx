@@ -8,6 +8,7 @@ export default function LoginPage(): JSX.Element {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleLogin = async ({
@@ -21,20 +22,22 @@ export default function LoginPage(): JSX.Element {
     try {
       setIsLoading(true); // loading on. user no spam click button
       if (email && password) {
-        if (email.match(mailformat)) { // check email
+        // email or password = '' <=> false
+        if (email.match(mailformat)) {
+          // check email
           const uid = await SignIn({ email, password }); // login email from firebase
 
           if (uid) {
             navigate("/");
           }
-        }else{
-          alert("You have entered an invalid email address!");
+        } else {
+          setError("You have entered an invalid email address!");
         }
       } else {
-        alert("input invalid");
+        setError("input invalid");
       }
     } catch (error) {
-      alert(error);
+      setError(`${error}`);
     } finally {
       setIsLoading(false);
     }
@@ -64,6 +67,9 @@ export default function LoginPage(): JSX.Element {
               type="password"
             />
           </div>
+          {error && (
+            <div className="mr-[auto] pl-[12px] text-[red] ">{error}</div>
+          )}
 
           <div className="grow" />
 
@@ -75,6 +81,7 @@ export default function LoginPage(): JSX.Element {
             Login
             {isLoading && <div className={`${styles.loader}`}></div>}
           </div>
+
           <div className="grow" />
         </div>
       </div>
